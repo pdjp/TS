@@ -1,0 +1,9 @@
+<div class="main schedules-index">
+  <div class="container">
+    <% @schedules.each do |schedule| %>
+      <div class="schedules-index-item">
+        <%= schedule.content %>
+      </div>
+    <% end %>
+  </div>
+</div>

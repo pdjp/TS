@@ -11,6 +11,19 @@
   </head>
 
   <body>
+    <header>
+  <div class="header-logo">
+  <%= link_to("TIS","/") %>
+  </div>
+  <ul class="header-menus">
+    <li>
+    <%= link_to("TISとは", "/about") %>
+    </li>
+    <li>
+    <%= link_to("スケジュール一覧", "/index") %>
+    </li>
+  </ul>
+</header>
     <%= yield %>
   </body>
 </html>
