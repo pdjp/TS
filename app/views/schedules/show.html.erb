@@ -1,0 +1,16 @@
+<div class="main schedules-show">
+  <div class="container">
+    <div class="schedules-show-item">
+      <p>
+      <%=@schedule.content%>
+      </p>
+      <div class="schedule-time">
+      <%=@schedule.created_at %>
+      </div>
+      <div class="schedule-menus">
+        <%= link_to("編集", "/schedules/#{@schedule.id}/edit") %>
+        <%= link_to("削除", "/schedules/#{@schedule.id}/destroy", {method: "schedule"}) %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -2,7 +2,7 @@
   <div class="container">
     <% @schedules.each do |schedule| %>
       <div class="schedules-index-item">
-        <%= schedule.content %>
+      <%=link_to(schedule.content,"/schedules/#{schedule.id}" )%>
       </div>
     <% end %>
   </div>
