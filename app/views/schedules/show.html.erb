@@ -1,6 +1,9 @@
 <div class="main schedules-show">
   <div class="container">
     <div class="schedules-show-item">
+      <div class="schedule-user-name">
+      <%= link_to(@user.name, "/users/#{@user.id}") %>
+      </div>
       <p>
       <%=@schedule.content%>
       </p>
