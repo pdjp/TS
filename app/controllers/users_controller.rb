@@ -34,4 +34,14 @@ class UsersController < ApplicationController
   def login_form
     
   end
+  def login
+    @user = User.find_by(email: params[:email], password: params[:password])
+    # @userが存在するかどうかを判定するif文を作成してください
+    if @user
+      flash[:notice] = "ログインしました"
+      redirect_to("/index")
+    else
+      render("users/login_form")
+    end
+  end
 end
