@@ -5,13 +5,15 @@ class SchedulesController < ApplicationController
   end
   def show
     @schedule=Schedule.find_by(id:params[:id])
+    @user = User.find_by(id: @schedule.user_id)
   end  
   def new
     @schedule = Schedule.new
   end
   def create
     @schedule = Schedule.new(
-      content: params[:content]
+      content: params[:content],
+      user_id: @current_user.id
     )
     if @schedule.save 
       flash[:notice] = "作成しました"
