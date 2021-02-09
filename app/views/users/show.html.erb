@@ -7,5 +7,14 @@
       <%= link_to("編集", "/users/#{@user.id}/edit") %>
       <% end %>
     </div>
+    <% @user.schedules.each do |schedule| %>
+    <div class="schedules-index-item">
+          <div class="schedule-user-name">
+            <%= link_to(schedule.user.name, "/users/#{schedule.user.id}") %>
+          </div>
+          <%= link_to(schedule.content, "/posts/#{schedule.id}") %>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>

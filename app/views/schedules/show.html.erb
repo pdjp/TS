@@ -10,10 +10,12 @@
       <div class="schedule-time">
       <%=@schedule.created_at %>
       </div>
+      <% if @schedule.user_id == @current_user.id %>
       <div class="schedule-menus">
         <%= link_to("編集", "/schedules/#{@schedule.id}/edit") %>
         <%= link_to("削除", "/schedules/#{@schedule.id}/destroy", {method: "schedule"}) %>
       </div>
+      <% end %>
     </div>
   </div>
 </div>

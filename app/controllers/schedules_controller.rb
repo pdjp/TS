@@ -1,11 +1,12 @@
 class SchedulesController < ApplicationController
   before_action :authenticate_user
+  before_action :ensure_correct_user, {only: [:edit, :update, :destroy]}
   def index
     @schedules = Schedule.all
   end
   def show
     @schedule=Schedule.find_by(id:params[:id])
-    @user = User.find_by(id: @schedule.user_id)
+    @user = @schedule.user
   end  
   def new
     @schedule = Schedule.new
@@ -40,5 +41,12 @@ class SchedulesController < ApplicationController
     @schedule.destroy
     flash[:notice] = "削除しました"
     redirect_to("/index")
+  end
+  def ensure_correct_user
+    @schedule = Schedule.find_by(id: params[:id])
+    if @schedule.user_id != @current_user.id
+      flash[:notice] = "権限がありません"
+      redirect_to("/index")
+    end
   end
 end
