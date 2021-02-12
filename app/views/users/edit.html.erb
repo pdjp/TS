@@ -10,6 +10,9 @@
         <% end %>
         
         <%= form_tag("/users/#{@user.id}/update") do %>
+        <div class=destroy_button>
+        <%= link_to("アカウント削除", "/users/#{@user.id}/destroy", {method: "post"}) %>
+        </div>
           <p>ユーザー名</p>
           <input name="name" value="<%= @user.name %>">
           <p>メールアドレス</p>
