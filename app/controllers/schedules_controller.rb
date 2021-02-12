@@ -2,7 +2,7 @@ class SchedulesController < ApplicationController
   before_action :authenticate_user
   before_action :ensure_correct_user, {only: [:edit, :update, :destroy]}
   def index
-    @schedules = Schedule.all
+    @schedules = Schedule.all.order(date: :asc)
   end
   def show
     @schedule=Schedule.find_by(id:params[:id])
@@ -13,6 +13,7 @@ class SchedulesController < ApplicationController
   end
   def create
     @schedule = Schedule.new(
+      date: params[:date],
       content: params[:content],
       user_id: @current_user.id
     )

@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   post 'schedules/:id/destroy' => 'schedules#destroy'
 
   post 'users/:id/update' => 'users#update'
+  post 'users/:id/destroy' => 'users#destroy'
   get 'users/:id/edit' => 'users#edit'
   post 'users/create' => 'users#create'
   get 'signup' => 'users#new'

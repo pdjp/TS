@@ -4,6 +4,7 @@
     <%= form_tag('/schedules/create') do %>
     <div class="form">
       <div class="form-body">
+        <%= date_field_tag name="date" %>
         <textarea name="content"></textarea>
         <input type="submit" value="入力">
       </div>

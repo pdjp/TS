@@ -5,15 +5,18 @@
       <p><%= @user.email %></p>
       <% if @user.id == @current_user.id %>
       <%= link_to("編集", "/users/#{@user.id}/edit") %>
+      <%= link_to("削除", "/users/#{@user.id}/destroy", {method: "post"}) %>
       <% end %>
     </div>
     <% @user.schedules.each do |schedule| %>
-    <div class="schedules-index-item">
-          <div class="schedule-user-name">
-            <%= link_to(schedule.user.name, "/users/#{schedule.user.id}") %>
-          </div>
-          <%= link_to(schedule.content, "/schedules/#{schedule.id}") %>
+      <div class="schedules-index-item">
+        <div>
+        <%= schedule.date %>
         </div>
+        <div class="schedule-user-name">
+            <%= link_to(schedule.user.name, "/users/#{schedule.user.id}") %>
+        </div>
+            <%=link_to(schedule.content,"/schedules/#{schedule.id}" )%>
       </div>
     <% end %>
   </div>

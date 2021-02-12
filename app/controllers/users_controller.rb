@@ -38,6 +38,11 @@ class UsersController < ApplicationController
   def login_form
     
   end
+  def destroy
+    @user = User.find_by(id:params[:id])
+    @user.destroy
+    redirect_to("/index")
+  end
   def login
     @user = User.find_by(email: params[:email])
     if @user && @user.authenticate(params[:password])
