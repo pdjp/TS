@@ -15,7 +15,8 @@ class SchedulesController < ApplicationController
     @schedule = Schedule.new(
       date: params[:date],
       content: params[:content],
-      user_id: @current_user.id
+      user_id: @current_user.id,
+      money: params[:money]
     )
     if @schedule.save 
       flash[:notice] = "作成しました"
@@ -29,7 +30,9 @@ class SchedulesController < ApplicationController
   end
   def update
     @schedule = Schedule.find_by(id: params[:id])
+    @schedule.date = params[:date]
     @schedule.content = params[:content]
+    @schedule.money = params[:money]
     if @schedule.save
       flash[:notice] = "編集しました"
       redirect_to("/index")

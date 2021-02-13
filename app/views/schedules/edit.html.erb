@@ -9,7 +9,9 @@
               <%= message %>
             </div>
           <% end %>
+        <%= date_field_tag name="date",value=@schedule.date %>
         <textarea name="content"><%= @schedule.content %></textarea>
+        <%= number_field_tag name="money",value=@schedule.money %>
         <input type="submit" value="保存">
       </div>
     </div>

@@ -10,6 +10,9 @@
       <p>
       <%=@schedule.content %>
       </p>
+      <p>
+      <%=@schedule.money %>
+      </p>
       <% if @schedule.user_id == @current_user.id %>
       <div class="schedule-menus">
         <%= link_to("編集", "/schedules/#{@schedule.id}/edit") %>

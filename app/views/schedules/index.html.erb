@@ -6,9 +6,13 @@
         <%= schedule.date %>
         </div>
         <div class="schedule-user-name">
-            <%= link_to(schedule.user.name, "/users/#{schedule.user.id}") %>
+          <%= link_to(schedule.user.name, "/users/#{schedule.user.id}") %>
         </div>
             <%=link_to(schedule.content,"/schedules/#{schedule.id}" )%>
+            <div>
+            <p><%= schedule.money %>円</p>
+            </div>
+            
       </div>
     <% end %>
   </div>
