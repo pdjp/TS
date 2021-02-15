@@ -4,10 +4,13 @@
       <h2><%= @user.name %></h2>
       <p><%= @user.email %></p>
       <% if @user.id == @current_user.id %>
-      <%= link_to("編集", "/users/#{@user.id}/edit") %>
+      <%= link_to("編集", "/users/#{@user.id}/edit") %> 
       <% end %>
     </div>
-    <% @user.schedules.each do |schedule| %>
+    <p>総収支<%=Schedule.all.sum(:money) %>円</p>
+     <%
+=begin%>
+ <% @user.schedules.each do |schedule| %>
       <div class="schedules-index-item">
         <div>
         <%= schedule.date %>
@@ -16,7 +19,12 @@
             <%= link_to(schedule.user.name, "/users/#{schedule.user.id}") %>
         </div>
             <%=link_to(schedule.content,"/schedules/#{schedule.id}" )%>
+            <div>
+            <p><%= schedule.money %>円</p>
+            </div>
       </div>
-    <% end %>
+    <% end %> 
+<%
+=end%>
   </div>
 </div>
