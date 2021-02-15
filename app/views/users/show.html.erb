@@ -8,6 +8,9 @@
       <% end %>
     </div>
     <p>総収支<%=Schedule.all.sum(:money) %>円</p>
+    <p class=cbs>カテゴリ別の収支</p>
+    <%=Schedule.group(:content).sum(:money) %>
+    
      <%
 =begin%>
  <% @user.schedules.each do |schedule| %>
